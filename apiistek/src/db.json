@@ -1,0 +1,27 @@
+{
+  "users": [
+    {
+      "ıd": 1,
+      "username": "admin",
+      "password": "123456",
+      "id": "b2b4"
+    },
+    {
+      "ıd": 2,
+      "username": "user",
+      "password": "123456",
+      "id": "a7d9"
+    },
+    {
+      "ıd": 3,
+      "username": "user2",
+      "password": "123456",
+      "id": "be9c"
+    },
+    {
+      "id": 4,
+      "name": "begüm",
+      "password": "123456"
+    }
+  ]
+}
