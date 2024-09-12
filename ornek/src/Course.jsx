@@ -1,4 +1,5 @@
 import React from 'react'
+import './css/header.css'
 
 function Course({ course }) {
     const {id,title,description,price,link,image} = course;

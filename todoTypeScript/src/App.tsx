@@ -1,12 +1,15 @@
-import './App.css'
 import TodoCreate from './components/TodoCreate'
 
-function App() {
+import './App.css'
+import TodoList from './components/TodoList'
 
+function App() {
+ 
 
   return (
     <>
       <TodoCreate/>
+      <TodoList/>
     </>
   )
 }
