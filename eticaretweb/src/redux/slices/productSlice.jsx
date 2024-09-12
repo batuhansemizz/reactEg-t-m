@@ -11,8 +11,12 @@ const initialState = {
 const baseUrl = 'https://fakestoreapi.com/products';
 
 export const getAllProducts = createAsyncThunk('product/getAllProducts', async () => {
-    const response = await axios.get(baseUrl);
-    return response.data;
+    try {
+        const response = await axios.get(baseUrl);
+        return response.data;
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.response.data);
+    }
 })
 
 export const productSlice = createSlice({
@@ -20,21 +24,27 @@ export const productSlice = createSlice({
     initialState,
     reducers: {
         
+        setSelectedProduct: (state, action) => {
+            state.selectedProduct = action.payload;
+        },
     },
     extraReducers: (builder) => {
-        builder.addCase(getAllProducts.pending, (state) =>{
-            state.loading = true;
-        })
-       builder.addCase(getAllProducts.fulfilled, (state, action) => {
-        
-        state.loading = false;
-        state.products = action.payload;
-       })
-       
-        
+        builder
+            .addCase(getAllProducts.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(getAllProducts.fulfilled, (state, action) => {
+                state.loading = false;
+                state.products = action.payload;
+            })
+            .addCase(getAllProducts.rejected, (state, action) => {
+                state.loading = false;
+                // Hata durumu için state güncellemesi yapabilirsiniz
+                console.error('Ürünler yüklenirken bir hata oluştu:', action.payload);
+            });
     }
 })
 
-export const { setProducts, setSelectedProduct } = productSlice.actions;
+export const {  setSelectedProduct } = productSlice.actions;
 
 export default productSlice.reducer;
