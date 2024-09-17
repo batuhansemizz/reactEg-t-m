@@ -12,6 +12,8 @@ import MUICard from './components/MUICard'
 import MUIAccordion from './components/MUIAccordion'
 import MUIAppBat from './components/MUIAppBat'
 import MUIImage from './components/MUIImage'
+import MUIDialog from './components/MUIDialog'
+import MUISnackBat from './components/MUISnackBat'
 function App() {
   
 
@@ -27,8 +29,10 @@ function App() {
    {/*<MUICard/>*/}
    {/*<MUIAccordion/>*/}
    {/*<MUIAppBat/>*/}
-   <MUIImage/>
-   </>
+   {/*<MUIImage/>*/}
+ {/*<MUIDialog/>*/}
+  <MUISnackBat/>
+  </>
   )
 }
 
